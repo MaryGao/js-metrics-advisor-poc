@@ -3,13 +3,13 @@
 
 import { getClient, ClientOptions } from "@azure-rest/core-client";
 import { TokenCredential } from "@azure/core-auth";
-import { FarmbeatsLike } from "./clientDefinitions";
+import { MetricsAdvisorRestClientLike } from "./clientDefinitions";
 
-export default function Farmbeats(
+export default function MetricsAdvisorRestClient(
   endpoint: string,
   credentials: TokenCredential,
   options: ClientOptions = {}
-): FarmbeatsLike {
+): MetricsAdvisorRestClientLike {
   const baseUrl = options.baseUrl ?? `${endpoint}/metricsadvisor/v1.0`;
 
   options = {
@@ -19,7 +19,11 @@ export default function Farmbeats(
     }
   };
 
-  const client = getClient(baseUrl, credentials, options) as FarmbeatsLike;
+  const client = getClient(
+    baseUrl,
+    credentials,
+    options
+  ) as MetricsAdvisorRestClientLike;
 
   return client;
 }

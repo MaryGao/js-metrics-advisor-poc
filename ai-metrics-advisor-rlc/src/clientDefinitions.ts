@@ -613,6 +613,6 @@ export interface Routes {
   ): GetEnrichmentStatusByMetric;
 }
 
-export type FarmbeatsLike = Client & {
+export type MetricsAdvisorRestClientLike = Client & {
   path: Routes;
 };
